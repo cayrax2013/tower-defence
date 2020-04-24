@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TextHealthEnemyHandler : MonoBehaviour
+public class PositionSetterForHealthBarEnemy : MonoBehaviour
 {
     [SerializeField] private GameObject _enemy;
-    [SerializeField] private GameObject _camera;
 
     private void Update()
     {

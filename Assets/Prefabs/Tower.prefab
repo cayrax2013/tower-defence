@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3749309150693828460
+--- !u!1 &4953578120804812241
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5078622259467940865}
-  - component: {fileID: 9133832175718869515}
-  - component: {fileID: 7965270520705349882}
-  - component: {fileID: 5127211768502085869}
-  - component: {fileID: 3102957892129702563}
-  - component: {fileID: 2889659047068331571}
+  - component: {fileID: 4953578120804812245}
+  - component: {fileID: 4953578120804812244}
+  - component: {fileID: 4953578120804812247}
+  - component: {fileID: 4953578120804812246}
+  - component: {fileID: 4953578120804812202}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5078622259467940865
+--- !u!4 &4953578120804812245
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3749309150693828460}
+  m_GameObject: {fileID: 4953578120804812241}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.14249, y: 0.14249, z: 0.14249}
+  m_LocalPosition: {x: 184.79, y: 10.79, z: 156.2611}
+  m_LocalScale: {x: 3.7188, y: 11.977883, z: 3.7188}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &9133832175718869515
+--- !u!33 &4953578120804812244
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3749309150693828460}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &7965270520705349882
+  m_GameObject: {fileID: 4953578120804812241}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &4953578120804812247
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3749309150693828460}
+  m_GameObject: {fileID: 4953578120804812241}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -81,42 +80,30 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &5127211768502085869
-SphereCollider:
+--- !u!65 &4953578120804812246
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3749309150693828460}
+  m_GameObject: {fileID: 4953578120804812241}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3102957892129702563
+--- !u!114 &4953578120804812202
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3749309150693828460}
+  m_GameObject: {fileID: 4953578120804812241}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31562e847304fd14685a0124b5731236, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b99b643440650347b5a4dd862b25f72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 15
---- !u!114 &2889659047068331571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3749309150693828460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61944ec58f331364caa77ed36e5d90f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 0.1
+  _bullet: {fileID: 3749309150693828460, guid: 13f22929a53e64a4abb13eb858e4625c, type: 3}
+  _delayBetweenShots: 2

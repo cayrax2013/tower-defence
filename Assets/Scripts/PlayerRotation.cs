@@ -2,13 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum RotationAxes
-{
-    MouseXAndY = 0,
-    MouseX = 1,
-    MouseY = 2
-}
-
 public class PlayerRotation : MonoBehaviour
 {
     public enum RotationAxes
@@ -17,19 +10,22 @@ public class PlayerRotation : MonoBehaviour
         MouseX = 1,
         MouseY = 2
     }
+
     public RotationAxes axes = RotationAxes.MouseXAndY;
     public float sensitivityHor = 9.0f;
     public float sensitivityVert = 9.0f;
     public float minimumVert = -45.0f;
     public float maximumVert = 45.0f;
     private float _rotationX = 0;
-    void Start()
+
+    private void Start()
     {
         Rigidbody body = GetComponent<Rigidbody>();
         if (body != null)
             body.freezeRotation = true;
     }
-    void Update()
+
+    private void Update()
     {
         if (axes == RotationAxes.MouseX)
         {
