@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class EnemyCollisionHandler : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.TryGetComponent(out BulletMover bulletMover))
-        {
+    //[SerializeField] private float _damage = 0.2f;
 
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.collider.TryGetComponent(out PlayerHealth playerHealth))
+    //    {
+    //        playerHealth.TakeHealth(_damage);
+    //    }
+    //}
 }

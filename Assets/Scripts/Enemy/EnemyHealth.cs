@@ -4,16 +4,20 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [System.Serializable]
-public class UnityEventfloat : UnityEvent<float> { }
+public class UnityEventFloat : UnityEvent<float> { }
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] private UnityEventfloat _healthChanged;
+    [SerializeField] private UnityEventFloat _healthChanged;
     [SerializeField] private float _currentHealth = 1;
+    [SerializeField] private int _goldForDie = 50;
+
+    private GameObject _gold;
 
     private void Start()
     {
         _healthChanged?.Invoke(_currentHealth);
+        _gold = GameObject.FindGameObjectWithTag("Gold");
     }
 
     public void TakeDamage(float damage)
@@ -23,6 +27,12 @@ public class EnemyHealth : MonoBehaviour
         _healthChanged?.Invoke(_currentHealth);
 
         if (_currentHealth <= 0)
-            Destroy(gameObject);
+            Die();
+    }
+
+    private void Die()
+    {
+        _gold.GetComponent<Gold>().TakeGold(50);
+        Destroy(gameObject);
     }
 }

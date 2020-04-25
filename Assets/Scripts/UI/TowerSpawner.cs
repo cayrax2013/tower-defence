@@ -4,25 +4,28 @@ using UnityEngine;
 
 public class TowerSpawner : MonoBehaviour
 {
-    [SerializeField] public GameObject _tower;
+    [SerializeField] private GameObject _tower;
+    [SerializeField] private Gold _gold;
+    [SerializeField] private int _priceForTower = 100;
 
     private List<GameObject> _towers = new List<GameObject>();
-    private bool canSpawn = false;
 
     private void SpawnTower()
     {
-        RaycastHit info;
-
         int maskTower = 1 << 8;
 
-        var placeForSpawnTower = Physics.Raycast(transform.position, Vector3.down, out info, 40, maskTower);
+        var placeForSpawnTower = Physics.Raycast(transform.position, Vector3.down, 40, maskTower);
 
         if (!CheckPresentNearestTower() || _towers.Count == 0)
         {
             if (placeForSpawnTower)
             {
-                GameObject tower = Instantiate(_tower, new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), Quaternion.identity);
-                _towers.Add(tower);
+                if (PlayerPrefs.GetInt("currentGold") >= 100)
+                {
+                    _gold.TakeGold(-_priceForTower);
+                    GameObject tower = Instantiate(_tower, new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z + 2.3f), Quaternion.identity);
+                    _towers.Add(tower);
+                }
             }
         }
     }
@@ -33,7 +36,7 @@ public class TowerSpawner : MonoBehaviour
 
         foreach (var tower in _towers)
         {
-            if (Vector3.Distance(transform.position, tower.transform.position) < 40)
+            if (Vector3.Distance(transform.position, tower.transform.position) < 10)
             {
                 theTowerIsNear = true;
             }

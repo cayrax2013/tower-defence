@@ -23,7 +23,7 @@ public class TowerShooting : MonoBehaviour
                 if (_elapsedTime >= _delayBetweenShots)
                 {
                     _elapsedTime = 0f;
-                    Instantiate(_bullet, transform.position, Quaternion.identity);
+                    Instantiate(_bullet, new Vector3(transform.position.x, transform.position.y + 8, transform.position.z), Quaternion.identity);
                 }
             }
         }

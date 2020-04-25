@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private float _speed = 10f;
     [SerializeField] private float _maxDistance = 3;
+
+    public float Speed = 10f;
 
     private GameObject _path;
     private Transform[] _points;
@@ -28,11 +29,11 @@ public class EnemyMovement : MonoBehaviour
     {
         Transform target = _points[_currentPoint];
 
-        transform.position = Vector3.MoveTowards(transform.position, target.position, _speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, target.position, Speed * Time.deltaTime);
 
-        var distanceSqure = (transform.position - _points[_currentPoint].position).magnitude;
+        var vectorLenght = (transform.position - _points[_currentPoint].position).magnitude;
 
-        if (distanceSqure < _maxDistance)
+        if (vectorLenght < _maxDistance)
         {
             _currentPoint++;
 

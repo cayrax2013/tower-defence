@@ -6,6 +6,7 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private GameObject _bullet;
     [SerializeField] private float _delayBetweenShots = 2f;
+    [SerializeField] private Animator _animator;
 
     private float _elapsedTime = 0f;
     private GameObject _enemy;

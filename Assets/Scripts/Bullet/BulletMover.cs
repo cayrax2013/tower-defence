@@ -17,7 +17,7 @@ public class BulletMover : MonoBehaviour
     private void Update()
     {
         if (_enemies != null)
-        {
+        {   
             if (_nearestEnemy != null)
                 transform.position = Vector3.MoveTowards(transform.position, _nearestEnemy.transform.position, _speed * Time.deltaTime);
             else
@@ -35,13 +35,12 @@ public class BulletMover : MonoBehaviour
 
         foreach (var enemy in _enemies)
         {
-            var direction = enemy.transform.position - transform.position;
-            float currentDistance = direction.magnitude;
+            var vectorLenght = (enemy.transform.position - transform.position).magnitude;
 
-            if (currentDistance < distance)
+            if (vectorLenght < distance)
             {
                 _nearestEnemy = enemy;
-                distance = currentDistance;
+                distance = vectorLenght;
             }
         }
 
